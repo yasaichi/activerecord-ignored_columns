@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Activerecord
-  module IgnoredColumns
-    # Your code goes here...
-  end
+require_relative "ignored_columns/version"
+
+if defined?(Rails)
+  require_relative "ignored_columns/railtie"
 end
