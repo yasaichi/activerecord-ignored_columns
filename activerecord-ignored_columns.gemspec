@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.email       = ["yasaichi@users.noreply.github.com"]
   s.homepage    = "https://github.com/yasaichi/activerecord-ignored_columns"
   s.summary     = "Backport of ActiveRecord::Base.ignored_columns"
-  s.description = "Backport of ActiveRecord::Base.ignored_columns to Rails 4.1 ~ 5.0"
+  s.description = "Backport of ActiveRecord::Base.ignored_columns into Rails 4 and 5.0"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
