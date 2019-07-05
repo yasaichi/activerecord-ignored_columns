@@ -9,7 +9,7 @@ require "activerecord/ignored_columns/version"
 Gem::Specification.new do |s|
   s.name        = "activerecord-ignored_columns"
   s.version     = Activerecord::IgnoredColumns::VERSION
-  s.authors     = ["yasaichi"]
+  s.authors     = ["Yuichi Goto"]
   s.email       = ["yasaichi@users.noreply.github.com"]
   s.homepage    = "https://github.com/yasaichi/activerecord-ignored_columns"
   s.summary     = "Backport of ActiveRecord::Base.ignored_columns"
