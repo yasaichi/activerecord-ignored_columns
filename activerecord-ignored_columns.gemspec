@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.description = "Backport of ActiveRecord::Base.ignored_columns into Rails 4 and 5.0"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["CHANGELOG.md", "lib/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "activerecord", ">= 4.0", "< 5.1"
 
