@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Activerecord
+module ActiveRecord
   module IgnoredColumns
     module QueryMethods
       def self.included(active_record_relation)

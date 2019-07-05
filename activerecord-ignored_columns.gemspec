@@ -8,7 +8,7 @@ require "activerecord/ignored_columns/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "activerecord-ignored_columns"
-  s.version     = Activerecord::IgnoredColumns::VERSION
+  s.version     = ActiveRecord::IgnoredColumns::VERSION
   s.authors     = ["Yuichi Goto"]
   s.email       = ["yasaichi@users.noreply.github.com"]
   s.homepage    = "https://github.com/yasaichi/activerecord-ignored_columns"

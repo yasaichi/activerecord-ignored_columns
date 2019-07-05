@@ -5,7 +5,7 @@ require "rails/railtie"
 require_relative "model_schema"
 require_relative "query_methods"
 
-module Activerecord
+module ActiveRecord
   module IgnoredColumns
     class Railtie < ::Rails::Railtie
       initializer "active_record.ignored_columns" do
@@ -14,11 +14,11 @@ module Activerecord
             ::Rails.gem_version : ::Gem::Version.create(::Rails.version)
 
           if rails_version < ::Gem::Version.create("5")
-            include ::Activerecord::IgnoredColumns::ModelSchema
+            include ::ActiveRecord::IgnoredColumns::ModelSchema
           end
 
           if rails_version < ::Gem::Version.create("5.1")
-            ::ActiveRecord::Relation.include(::Activerecord::IgnoredColumns::QueryMethods)
+            ::ActiveRecord::Relation.include(::ActiveRecord::IgnoredColumns::QueryMethods)
           end
         end
       end

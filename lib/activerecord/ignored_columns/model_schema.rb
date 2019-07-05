@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Activerecord
+module ActiveRecord
   module IgnoredColumns
     module ModelSchema
       def self.included(active_record_base)

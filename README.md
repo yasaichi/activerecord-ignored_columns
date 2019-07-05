@@ -1,4 +1,4 @@
-# Activerecord::IgnoredColumns
+# ActiveRecord::IgnoredColumns
 Short description and motivation.
 
 ## Usage
