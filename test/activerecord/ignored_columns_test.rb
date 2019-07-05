@@ -33,7 +33,7 @@ class ActiveRecord::IgnoredColumns::Test < ActiveSupport::TestCase
     assert SymbolIgnoredDeveloper.new.respond_to?(:last_name=)
 
     # NOTE: The implementation of `define_attribute_method` has a bug, so skip
-    # these assertions in Rails 4.1
+    # these assertions in Rails 4.1 or former.
     if Gem::Version.create(Rails.version) >= Gem::Version.create("4.2")
       assert Developer.new.respond_to?(:last_name?)
       assert SubDeveloper.new.respond_to?(:last_name?)
