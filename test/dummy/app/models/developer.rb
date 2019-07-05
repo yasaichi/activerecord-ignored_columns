@@ -6,7 +6,7 @@ class Developer < ApplicationRecord
   attr_accessor :last_name
 
   # NOTE: The implementation of `define_attribute_method` has a bug, so skip
-  # the following definition in Rails 4.1
+  # the following definition in Rails 4.1 or former.
   if ::Gem::Version.create(::Rails.version) >= ::Gem::Version.create("4.2")
     define_attribute_method "last_name"
   end
