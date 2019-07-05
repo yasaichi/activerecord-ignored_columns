@@ -10,14 +10,14 @@ module Activerecord
     class Railtie < ::Rails::Railtie
       initializer "active_record.ignored_columns" do
         ::ActiveSupport.on_load(:active_record) do
-          rails_version = Rails.respond_to?(:gem_version) ?
-            Rails.gem_version : Gem::Version.create(Rails.version)
+          rails_version = ::Rails.respond_to?(:gem_version) ?
+            ::Rails.gem_version : ::Gem::Version.create(::Rails.version)
 
-          if rails_version < Gem::Version.create("5")
+          if rails_version < ::Gem::Version.create("5")
             include ::Activerecord::IgnoredColumns::ModelSchema
           end
 
-          if rails_version < Gem::Version.create("5.1")
+          if rails_version < ::Gem::Version.create("5.1")
             ::ActiveRecord::Relation.include(::Activerecord::IgnoredColumns::QueryMethods)
           end
         end
