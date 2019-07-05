@@ -11,6 +11,7 @@ module ActiveRecord
       end
 
       module ClassMethods
+        # Override
         def columns
           @columns ||= super.reject { |column| ignored_columns.include?(column.name) }
         end

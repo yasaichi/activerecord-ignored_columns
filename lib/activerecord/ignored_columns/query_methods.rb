@@ -8,12 +8,19 @@ module ActiveRecord
       end
 
       module PrependMethods
-        private def build_select(arel)
-          return super if select_values.any? || !klass.ignored_columns.any?
+        # Override
+        private def build_select(arel, selects = [])
+          if !selects.empty? || select_values.any? || !klass.ignored_columns.any?
+            return former_build_select_implementation? ? super : super(arel)
+          end
 
           arel.project(*klass.column_names.map { |name|
-            table[attribute_alias?(name) ? attribute_alias(name) : name]
+            table[klass.attribute_aliases[name] || name]
           })
+        end
+
+        private def former_build_select_implementation?
+          @former_build_select_implementation ||= method(:build_select).super_method.arity == 2
         end
       end
     end
