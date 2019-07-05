@@ -4,21 +4,25 @@ rvm:
   - 2.3.8
   - 2.4.6
 gemfile:
+  - gemfiles/activerecord_4_0.gemfile
   - gemfiles/activerecord_4_1.gemfile
   - gemfiles/activerecord_4_2.gemfile
   - gemfiles/activerecord_5_0.gemfile
 matrix:
   exclude:
     - rvm: 2.4.6
+      gemfile: gemfiles/activerecord_4_0.gemfile
+    - rvm: 2.4.6
       gemfile: gemfiles/activerecord_4_1.gemfile
 branches:
   only:
     - master
 before_install:
-  - gem update --system --no-doc
-before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
+  - gem update --system --no-doc
+before_script:
+  - pushd test/dummy && bin/rake db:test:prepare && popd
   - ./cc-test-reporter before-build
 after_script:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
