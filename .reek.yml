@@ -1,0 +1,8 @@
+# Excluding directories
+exclude_paths:
+  - test/dummy
+
+# Generic smell configuration
+detectors:
+  IrresponsibleModule:
+    enabled: false
