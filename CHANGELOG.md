@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [0.2.1](https://github.com/yasaichi/activerecord-ignored_columns/releases/tag/v0.2.1) (July 6, 2019)
+
+### Compatible changes
+
+- [Overall refactoring](https://github.com/yasaichi/activerecord-ignored_columns/pull/3)
+
 ## [0.2.0](https://github.com/yasaichi/activerecord-ignored_columns/releases/tag/v0.2.0) (July 6, 2019)
 
 ### Enhancements
