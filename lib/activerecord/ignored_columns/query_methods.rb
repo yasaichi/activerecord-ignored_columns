@@ -3,25 +3,18 @@
 module ActiveRecord
   module IgnoredColumns
     module QueryMethods
-      def self.included(active_record_relation)
-        active_record_relation.prepend(PrependMethods)
-      end
-
-      module PrependMethods
-        # Override
-        private def build_select(arel, selects = [])
-          if !selects.empty? || select_values.any? || !klass.ignored_columns.any?
-            return former_build_select_implementation? ? super : super(arel)
-          end
-
-          arel.project(*klass.column_names.map { |name|
-            table[klass.attribute_aliases[name] || name]
-          })
+      # Override
+      private def build_select(arel, *args)
+        if args.empty? # ActiveRecord 4.1 or later
+          return super(arel) if select_values.any? || !klass.ignored_columns.any?
+        else
+          selects = args.first
+          return super(arel, selects) if !selects.empty? || !klass.ignored_columns.any?
         end
 
-        private def former_build_select_implementation?
-          @former_build_select_implementation ||= method(:build_select).super_method.arity == 2
-        end
+        arel.project(*klass.column_names.map { |name|
+          table[klass.attribute_aliases[name.to_s] || name] # arel_attribute(name)
+        })
       end
     end
   end
