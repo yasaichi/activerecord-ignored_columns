@@ -4,8 +4,8 @@ module ActiveRecord
   module IgnoredColumns
     module ModelSchema
       def self.included(active_record_base)
-        active_record_base.class_exec(ClassMethods) do |class_methods|
-          extend(class_methods)
+        active_record_base.class_exec do
+          extend ClassMethods
           self.ignored_columns = [].freeze
         end
       end
